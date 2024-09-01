@@ -1,0 +1,67 @@
+# More info on config here: https://golangci-lint.run/usage/configuration/#config-file
+run:
+  concurrency: 4
+  timeout: 10m
+  issues-exit-code: 1
+  tests: true
+  cache:
+    enable: true
+    dir: ./golangci-lint-cache
+
+output:
+  formats: colored-line-number
+  print-issued-lines: true
+  print-linter-name: true
+
+linters-settings:
+  dupl:
+    threshold: 100
+  goconst:
+    min-len:         2
+    min-occurrences: 2
+ 
+linters:
+  disable-all: true
+  enable:
+    - errcheck
+    - goconst
+    - goimports
+    - gosec
+    - govet
+    - ineffassign
+    - staticcheck
+    - revive
+    - typecheck
+    - unused
+    - misspell
+    - gosimple
+    - prealloc
+    - predeclared
+
+issues:
+  skip-dirs:
+    - bin
+    - vendor
+    - var
+    - tmp
+    - .cache
+
+  exclude-rules:
+    # Exclude some linters from running on tests files.
+    - path: _test\.go
+      linters:
+        - gocyclo
+        - errcheck
+        - dupl
+        - gosec
+       # Run some linter only for test files by excluding its issues for everything else.
+    - path-except: _test\.go
+      linters:
+        - forbidigo
+  exclude-use-default: false
+  exclude:
+    # _ instead of err checks
+    - G104
+    - exported func .* returns unexported type .*, which can be annoying to use
+    - should have a package comment
+    - don't use an underscore in package name

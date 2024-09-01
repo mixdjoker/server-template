@@ -1,0 +1,9 @@
+# Binaries for programs and plugins
+/bin/
+/.golangci-lint-cache/
+
+# Secrets
+.credentials
+
+# Prod env file
+*.prod.env

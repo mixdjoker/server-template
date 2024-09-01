@@ -1,0 +1,25 @@
+name: Template Setup
+
+on:
+  repository_dispatch:
+    types: [setup-template]
+
+jobs:
+  replace-imports:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v5
+      with:
+        go-version-file: './go.mod'
+        cache-dependency-path: go.sum
+
+    - name: Run replace_module.sh
+      env:
+        REPO_PATH: ${{ github.repository }}
+      run: |
+        chmod +x ./replace_module.sh
+        ./replace_module.sh github.com/${{ github.repository }}
