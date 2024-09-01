@@ -1,8 +1,7 @@
 name: Template Setup
 
 on:
-  repository_dispatch:
-    types: [setup-template]
+  workflow_dispatch:
 
 jobs:
   replace-imports:
