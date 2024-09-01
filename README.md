@@ -1,13 +1,13 @@
-# agent-tester
+# server-templater
 
 <div align="center">
 
-[![Go](https://github.com/mixdjoker/agent-tester/actions/workflows/go.yml/badge.svg?branch=main)](https://github.com/mixdjoker/agent-tester/actions/workflows/go.yml)
 [![CodeQL](https://github.com/mixdjoker/agent-tester/actions/workflows/codeql.yml/badge.svg)](https://github.com/mixdjoker/agent-tester/actions/workflows/codeql.yml)
+[![Go](https://github.com/mixdjoker/agent-tester/actions/workflows/go.yml/badge.svg)](https://github.com/mixdjoker/agent-tester/actions/workflows/go.yml)
 
 </div>
 
-Agent service that run tests, save last results in JSON, send result to agent-connector
+>Remember to insert actual badges and Project name
 
 ## REST-API
 
